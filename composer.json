@@ -17,6 +17,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/console": "2.2.*",
+        "silex/silex":"*@dev"
     },
     "suggest": {},
     "autoload": {
