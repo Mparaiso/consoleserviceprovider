@@ -1,0 +1,27 @@
+{
+    "name": "mparaiso/consoleserviceprovider",
+    "description": "Symfony Console integration for Silex",
+    "keywords": [
+        "console",
+        "silex",
+        "symfony"
+    ],
+    "homepage": "https://github.com/Mparaiso/consoleserviceprovider",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MParaiso",
+            "email": "mparaiso@online.fr"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/console": "2.2.*",
+    },
+    "suggest": {},
+    "autoload": {
+        "psr-0": {
+            "Mparaiso": "src/"
+        }
+    }
+}
