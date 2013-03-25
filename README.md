@@ -27,3 +27,6 @@ status: Work in Progress
     ***console*** : Symfony\Component\Console\Application
     ***console.helperset*** : Symfony\Component\Console\Helper\HelperSet
 
+TODO
+
++ list services in alphabetic order in ListServicesCommand

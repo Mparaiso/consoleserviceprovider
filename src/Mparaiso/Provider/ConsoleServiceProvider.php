@@ -9,7 +9,7 @@ use Silex\Application;
 use Symfony\Component\Console\Application as ConsoleApplication;
 
 class ConsoleServiceProvider implements ServiceProviderInterface{
-
+    const INIT="consoleserviceprovider_init";
     /**
      * Registers services on the given app.
      *
@@ -25,9 +25,10 @@ class ConsoleServiceProvider implements ServiceProviderInterface{
                 "app"=>new ApplicationHelper($app),
             ));
         });
-        $app["console"]=$app->share(function($app){
+        $app["console"]=$app->share(function(Application $app){
             $console = new ConsoleApplication("app console");
             $console->setHelperSet($app["console.helperset"]);
+            $app["dispatcher"]->dispatch(self::INIT);
             return $console;
         });
     }

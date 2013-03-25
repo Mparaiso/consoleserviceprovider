@@ -7,7 +7,7 @@
         "symfony"
     ],
     "homepage": "https://github.com/Mparaiso/consoleserviceprovider",
-    "license": "MIT",
+    "license": "GPL",
     "authors": [
         {
             "name": "MParaiso",
