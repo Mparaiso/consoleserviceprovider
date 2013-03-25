@@ -1,6 +1,6 @@
 <?php
 
-namespace MParaiso\Provider;
+namespace Mparaiso\Provider;
 
 use Silex\ServiceProviderInterface;
 use Mparaiso\Console\Helper\ApplicationHelper;
