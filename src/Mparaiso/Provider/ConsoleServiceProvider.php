@@ -25,10 +25,9 @@ class ConsoleServiceProvider implements ServiceProviderInterface{
                 "app"=>new ApplicationHelper($app),
             ));
         });
-        $app["console"]=$app->share(function(Application $app){
+        $app["console"]=$app->share(function($app){
             $console = new ConsoleApplication("app console");
             $console->setHelperSet($app["console.helperset"]);
-            $app["dispatcher"]->dispatch(self::INIT);
             return $console;
         });
     }
