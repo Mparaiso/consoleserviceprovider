@@ -30,3 +30,8 @@ status: Work in Progress
 TODO
 
 + list services in alphabetic order in ListServicesCommand
+
+
+CHANGELOG
+
+0.0.6@dev app:router:debug command added
