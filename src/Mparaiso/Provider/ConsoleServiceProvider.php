@@ -3,7 +3,6 @@
 namespace Mparaiso\Provider;
 
 use Mparaiso\Console\Command\ListServicesCommand;
-use Mparaiso\Console\Command\DeleteAllDataCommand;
 use Symfony\Component\Console\Helper\DialogHelper;
 use Mparaiso\Console\Command\RouterDebugCommand;
 use Mparaiso\Console\Helper\ApplicationHelper;
@@ -41,7 +40,6 @@ class ConsoleServiceProvider implements ServiceProviderInterface
                 $console->setHelperSet($app["console.helperset"]);
                 $console->add(new RouterDebugCommand);
                 $console->add(new ListServicesCommand);
-                $console->add(new DeleteAllDataCommand);
                 return $console;
             }
         );
