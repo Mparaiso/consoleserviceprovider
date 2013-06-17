@@ -2,12 +2,15 @@
 
 namespace Mparaiso\Provider;
 
+use Doctrine\DBAL\Tools\Console\Command\ImportCommand;
+use Doctrine\DBAL\Tools\Console\Command\ReservedWordsCommand;
+use Doctrine\DBAL\Tools\Console\Command\RunSqlCommand;
+use Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper;
 use Mparaiso\Console\Command\ListServicesCommand;
-use Symfony\Component\Console\Helper\DialogHelper;
 use Mparaiso\Console\Command\RouterDebugCommand;
 use Mparaiso\Console\Helper\ApplicationHelper;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Symfony\Component\Console\Helper\DialogHelper;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Helper\HelperSet;
@@ -55,6 +58,21 @@ class ConsoleServiceProvider implements ServiceProviderInterface
     public function boot(Application $app)
     {
         // TODO: Implement boot() method.
+        if (isset($app['db'])) {
+            $app['console.helperset'] = $app->share(
+                $app->extend("console.helperset", function ($hs, $app) {
+                    /* @var HelperSet $hs */
+                    $hs->set(new ConnectionHelper($app["db"]), "db");
+                    return $hs;
+                }));
+            $app["console"] = $app->share($app->extend("console", function ($console, $app) {
+                /* @var \Symfony\Component\Console\Application $console */
+                $console->add(new ImportCommand);
+                $console->add(new ReservedWordsCommand);
+                $console->add(new RunSqlCommand);
+                return $console;
+            }));
+        }
     }
 
 }
