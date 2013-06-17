@@ -10,6 +10,7 @@ use Mparaiso\Console\Command\ListServicesCommand;
 use Mparaiso\Console\Command\RouterDebugCommand;
 use Mparaiso\Console\Helper\ApplicationHelper;
 use Silex\Application;
+use Silex\ServiceProviderInterface;
 use Symfony\Component\Console\Helper\DialogHelper;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Helper\FormatterHelper;
